@@ -62,23 +62,35 @@ const Header = () => {
           aria-hidden="true"
           onClick={() => toggleMenuHandler()}
         ></i>
-        <Link to="/">
-          <img src="/img/Logo.png" alt="Theme" className="h-11 pl-2" />
-        </Link>
-        <sup className="font-medium">IN</sup>
+        {localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches) ? (
+          <Link to="/">
+            <img
+              src="/img/watchify-dark.png"
+              alt="Theme"
+              className="h-16 pl-2 scroll-smooth"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            />
+          </Link>
+        ) : (
+          <Link to="/">
+            <img
+              src="/img/watchify-light.png"
+              alt="Theme"
+              className="h-16 pl-2 scroll-smooth"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            />
+          </Link>
+        )}
       </div>
       <div>
         <div className="flex">
-          <form
-            action={"/search/" + searchQuery}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <form action={"/search/" + searchQuery}>
             <input
               type="text"
               placeholder="Search"
-              className="border-[1px] border-black px-4 py-[0.40rem] w-[30rem] rounded-l-full focus:outline-black dark:outline-none dark:bg-[#272727] dark:text-white"
+              className="border-[1px] border-black px-4 py-[0.40rem] w-[30rem] rounded-l-full focus:outline-black dark:outline-none dark:bg-[#272727] dark:text-white 2xl:w-[30rem] xl:w-96 lg:w-64 md:w-64 sm:w-28"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setHideSuggestions(true)}
@@ -87,12 +99,12 @@ const Header = () => {
           </form>
           <a
             href={"/search/" + searchQuery}
-            className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.40rem] flex items-center"
+            className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.40rem] flex items-center sm:px-3"
           >
             <img
               src="/img/search.png"
               alt="Search Icon"
-              className="h-[1.15rem]"
+              className="h-[1.15rem] xs:h-4"
             />
           </a>
         </div>
@@ -124,7 +136,7 @@ const Header = () => {
               <img
                 src="/img/light-dark2.png"
                 alt="Theme"
-                className="h-5 ml-1 mr-2 bg-white rounded-full"
+                className="h-5 ml-1 mr-2 bg-white rounded-full 2xl:block xl:block lg:block md:block sm:hidden"
               />
             ) : (
               <img

@@ -1,17 +1,34 @@
 import React from "react";
 import "font-awesome/css/font-awesome.min.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { closeMenu, toggleMenu } from "../utils/appSlice";
 
 const SideBar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const dispatch = useDispatch();
+
+  const closeMenuToggle = () => {
+    dispatch(closeMenu());
+  };
+
+  const openMenuToggle = () => {
+    dispatch(toggleMenu());
+  };
 
   if (!isMenuOpen) {
     return null;
   }
 
   return (
-    <div className="pl-4 py-5 w-56 text-sm dark:bg-black dark:text-white">
+    <div
+      className={`pl-4 py-5 w-56 text-sm dark:bg-black dark:text-white 2xl:${() =>
+        openMenuToggle()} 2xl:relative xl:${() =>
+        openMenuToggle()} xl:relative lg:${() =>
+        openMenuToggle()} lg:relative md:${() =>
+        openMenuToggle()} md:relative sm:${() =>
+        closeMenuToggle()} sm:absolute`}
+    >
       <ul className="font-bold mb-1">
         <li className="bg-[#e3e3e3] dark:bg-[#272727] dark:text-white cursor-pointer rounded-md py-2">
           <Link to="/">
@@ -92,10 +109,7 @@ const SideBar = () => {
           <i className="fa fa-gamepad px-4" aria-hidden="true"></i>Sports
         </li>
         <li className="hover:bg-[#e3e3e3] cursor-pointer rounded-md py-2 dark:hover:bg-[#272727] dark:text-white">
-          <i
-            className="fa fa-graduation-cap pl-4 pr-3np"
-            aria-hidden="true"
-          ></i>
+          <i className="fa fa-graduation-cap pl-4 pr-3" aria-hidden="true"></i>
           Learning
         </li>
         <li className="hover:bg-[#e3e3e3] cursor-pointer rounded-md py-2 dark:hover:bg-[#272727] dark:text-white">

@@ -26,10 +26,10 @@ const RecommendedVideosList = () => {
   };
 
   return (
-    <div>
+    <div className="2xl:w-[26rem] 2xl:block xl:w-96 xl:block lg:w-80 md:hidden sm:hidden">
       {recommended?.map((video) => (
         <div className="py-2" key={video?.id?.videoId}>
-          <a href={"/watch?v=" + video?.id?.videoId} className="scroll-smooth">
+          <a href={"/watch?v=" + video?.id?.videoId}>
             <RecommendedVideo data={video} />
           </a>
         </div>

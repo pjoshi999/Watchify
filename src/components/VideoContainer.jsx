@@ -47,14 +47,10 @@ const VideoContainer = () => {
   return !videos || videos.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="flex flex-wrap">
-      <div className="flex flex-wrap gap-8">
+    <div className="flex justify-center">
+      <div className="grid gap-10 grid-cols-4 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {videos.map((video, index) => (
-          <Link
-            key={index}
-            to={"/watch?v=" + video.id}
-            className="scroll-smooth"
-          >
+          <Link key={index} to={"/watch?v=" + video.id}>
             <VideoCard info={video} />
           </Link>
         ))}

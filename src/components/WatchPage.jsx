@@ -64,37 +64,38 @@ const WatchPage = () => {
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
-  });
+  }, []);
 
   return (
-    <div className="py-5 px-24 w-full dark:bg-black dark:text-white">
+    <div className="py-5 px-24 w-full dark:bg-black dark:text-white 2xl:px-24 xl:px-16 lg:px-20 md:px-5 sm:px-5">
       <div className="flex justify-between w-full">
         <iframe
-          width="885"
-          height="498"
+          // width="885"
+          // height="498"
+          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:h-[24.1rem]"
           src={"https://www.youtube.com/embed/" + searchParam + "?autoplay=1"}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <div>
+        <div className="2xl:w-[26rem] 2xl:block xl:w-96 xl:block lg:w-80 md:hidden sm:hidden">
           <LiveChat />
         </div>
       </div>
-      <div className="mb-5 mt-2 flex justify-between">
-        <div className="w-[885px]">
+      <div className="flex justify-between w-full mb-5 mt-2">
+        <div className="w-[55.3rem]">
           <div>
             <h1 className="text-lg font-bold">{video?.snippet?.title}</h1>
           </div>
-          <div className="flex my-3 justify-between items-center w-[885px]">
+          <div className="flex my-3 justify-between items-center">
             <div className="flex">
               <img
                 src="https://yt3.ggpht.com/ytc/AGIKgqN1F5HXRCFl48NA5bwfOJsdLakGKcwyJrcZ31fkGQ=s48-c-k-c0x00ffffff-no-rj"
                 alt=""
                 className="w-9 h-9 cursor-pointer rounded-full"
               />
-              <div className="ml-2 leading-3 flex">
+              <div className="mx-2 leading-3 flex">
                 <div>
                   <h1 className="text-sm font-bold">
                     {video?.snippet?.channelTitle}
@@ -122,7 +123,7 @@ const WatchPage = () => {
                 </button>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex 2xl:flex xl:flex lg:flex md:hidden sm:hidden">
               <div className="mx-1">
                 <button className="px-3 py-1 rounded-l-full bg-[#f2f2f2] hover:bg-[#e2e0e0] border-r border-r-[#c2bdbd] dark:bg-[#272727] dark:hover:bg-[#3d3d3d]">
                   <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
@@ -150,7 +151,7 @@ const WatchPage = () => {
             </div>
           </div>
 
-          <div className="w-[885px] px-3 py-2 pb-3 bg-[#f2f2f2] text-sm rounded-xl my-5 dark:bg-[#272727] dark:text-white">
+          <div className="px-3 py-2 pb-3 bg-[#f2f2f2] text-sm rounded-xl my-5 dark:bg-[#272727] dark:text-white">
             <h1 className="font-medium">
               {count === 0
                 ? (count =
@@ -167,12 +168,12 @@ const WatchPage = () => {
             </p>
           </div>
 
-          <div>
+          <div className="">
             <h1 className="text-lg font-bold">Comments</h1>
             <CommentContainer />
           </div>
         </div>
-        <div className="w-[26rem]">
+        <div className="">
           <RecommendedVideosList />
         </div>
       </div>

@@ -7,7 +7,11 @@ const VideoCard = ({ info }) => {
   let count = Math.floor(statistics?.viewCount / 1000000);
   return (
     <div className="shadow-lg w-72 rounded-lg cursor-pointer">
-      <img src={thumbnails?.medium?.url} alt="" className="rounded-lg" />
+      <img
+        src={thumbnails?.medium?.url}
+        alt="Video-Img"
+        className="rounded-lg object-fill w-[17rem]"
+      />
       <div className="px-4 leading-4 py-1">
         <h1 className="font-bold text-sm">{title}</h1>
         <h1 className="font-medium pt-1 text-sm">{channelTitle}</h1>

@@ -48,7 +48,7 @@ const SearchResult = () => {
   return !results || results.length === 0 ? (
     <Shimmer2 />
   ) : (
-    <div className="px-28 py-8">
+    <div className="px-28 py-8 2xl:px-28 xl:px-28 lg:px-16 md:px-14 sm:px-5">
       {results.map((video) => {
         return <SearchResultComponent key={video.id.videoId} data={video} />;
       })}
