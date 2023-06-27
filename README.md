@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# FoodHut - Food Ordering Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Watchify! Watchify is a cutting-edge video streaming platform that offers seamless video playback, personalized recommendations, and a user-friendly interface. With advanced features like dynamic light-dark mode toggle and system preference compatibility, Watchify provides a customizable and immersive visual experience for users. This README file will guide you through the features, installation process, and how to contribute to the project.
 
-## Available Scripts
+## Table of Contents
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Contributing](#contributing)
 
-In the project directory, you can run:
+## Features
+FoodHut offers a range of features to enhance your food ordering experience:
 
-### `npm start`
+- Optimized search functionality with Debouncing of 200ms with caching using ReduxJS to prevent unnecessary requests.
+- Dark mode with Manual and System preference
+- Infinite scrolling for seamless loading of new data and Lazy loading
+- Seamless and immersive video playback with recommendations.
+- Shimmer UI to indicate when data is being loaded.
+- Search Suggestions and Personalized Suggestions.
+- N-level nested comments using recursion.
+- Live chat using API polling.
+- TailwindCSS for modern user interface
+- Config-driven UI was used to define the layout and styling of the app's user interface.
+- State management using React Redux.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+To run FoodHut locally on your machine, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/Watchify.git
+```
+2. Navigate to the project directory:
+```bash
+cd Watchify
+```
+3. Install the dependencies:
+```bash
+npm install
+```
+4. Start the development server:
+```bash
+npm start
+```
+5. Open your browser and visit http://localhost:3000 to access the application.
 
-### `npm test`
+## Contributing
+#### I welcome the contributions from the open-source community to enhance Watchify. To contribute, please follow these guidelines:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Submit a pull request, explaining the changes you've made.
 
-### `npm run build`
+##### Please ensure your code follows our coding conventions and includes relevant tests. We appreciate your contributions!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Thank you for choosing Watchify. We hope you enjoy using our application! If you encounter any issues or have any suggestions, please feel free to reach out to me.
