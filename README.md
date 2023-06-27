@@ -1,4 +1,4 @@
-# FoodHut - Food Ordering Application
+# Watchify - Unlock a World of Visual Delights!
 
 Welcome to Watchify! Watchify is a cutting-edge video streaming platform that offers seamless video playback, personalized recommendations, and a user-friendly interface. With advanced features like dynamic light-dark mode toggle and system preference compatibility, Watchify provides a customizable and immersive visual experience for users. This README file will guide you through the features, installation process, and how to contribute to the project.
 
