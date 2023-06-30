@@ -8,7 +8,7 @@ Welcome to Watchify! Watchify is a cutting-edge video streaming platform that of
 3. [Contributing](#contributing)
 
 ## Features
-FoodHut offers a range of features to enhance your food ordering experience:
+Watchify offers a range of features to enhance your online video streaming:
 
 - Optimized search functionality with Debouncing of 200ms with caching using ReduxJS to prevent unnecessary requests.
 - Dark mode with Manual and System preference
@@ -23,7 +23,7 @@ FoodHut offers a range of features to enhance your food ordering experience:
 - State management using React Redux.
 
 ## Installation
-To run FoodHut locally on your machine, follow these steps:
+To run Watchify locally on your machine, follow these steps:
 
 1. Clone the repository:
 ```bash
