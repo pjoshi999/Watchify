@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { closeMenu, toggleMenu } from "../utils/appSlice";
+import { closeMenu, toggleMenu, openMenu } from "../utils/appSlice";
 
 const SideBar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -27,7 +27,7 @@ const SideBar = () => {
         openMenuToggle()} xl:relative lg:${() =>
         openMenuToggle()} lg:relative md:${() =>
         openMenuToggle()} md:relative sm:${() =>
-        closeMenuToggle()} sm:absolute`}
+        dispatch(() => closeMenuToggle())} sm:absolute`}
     >
       <ul className="font-bold mb-1">
         <li className="bg-[#e3e3e3] dark:bg-[#272727] dark:text-white cursor-pointer rounded-md py-2">

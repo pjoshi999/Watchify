@@ -67,12 +67,12 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="py-5 px-24 w-full dark:bg-black dark:text-white 2xl:px-24 xl:px-16 lg:px-20 md:px-5 sm:px-5">
+    <div className="py-5 px-24 w-full dark:bg-black dark:text-white 2xl:px-24 xl:px-16 lg:px-20 md:px-5 sm:px-0">
       <div className="flex justify-between w-full">
         <iframe
           // width="885"
           // height="498"
-          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:h-[24.1rem]"
+          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:h-[15.1rem]"
           src={"https://www.youtube.com/embed/" + searchParam + "?autoplay=1"}
           title="YouTube video player"
           frameBorder="0"
@@ -83,7 +83,7 @@ const WatchPage = () => {
           <LiveChat />
         </div>
       </div>
-      <div className="flex justify-between w-full mb-5 mt-2">
+      <div className="flex justify-between w-full mb-5 mt-2 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-4">
         <div className="w-[55.3rem]">
           <div>
             <h1 className="text-lg font-bold">{video?.snippet?.title}</h1>

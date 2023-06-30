@@ -29,7 +29,7 @@ const MainContainer = () => {
           })}
         </div>
       </div>
-      <div className="mx-8 py-5 2xl:mx-8 xl:mx-7">
+      <div className="mx-8 py-5 2xl:mx-8 xl:mx-8 lg:mx-8 md:mx-8 sm:mx-0">
         <VideoContainer />
       </div>
     </div>

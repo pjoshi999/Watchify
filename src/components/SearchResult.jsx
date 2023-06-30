@@ -3,13 +3,17 @@ import { GOOGLE_API_KEY } from "../utils/config";
 import { useParams } from "react-router-dom";
 import SearchResultComponent from "./SearchResultComponent";
 import Shimmer2 from "./Shimmer2";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../utils/appSlice";
 
 const SearchResult = () => {
   const [results, setResults] = useState([]);
   const { query } = useParams();
   const [page, setPage] = useState(10);
 
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(closeMenu());
     getResults();
   }, [page]);
 
@@ -48,7 +52,7 @@ const SearchResult = () => {
   return !results || results.length === 0 ? (
     <Shimmer2 />
   ) : (
-    <div className="px-28 py-8 2xl:px-28 xl:px-28 lg:px-16 md:px-14 sm:px-5">
+    <div className="px-28 py-8 2xl:px-28 xl:px-28 lg:px-16 md:px-14 sm:px-8">
       {results.map((video) => {
         return <SearchResultComponent key={video.id.videoId} data={video} />;
       })}

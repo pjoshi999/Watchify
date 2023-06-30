@@ -69,7 +69,7 @@ const Header = () => {
             <img
               src="/img/watchify-dark.png"
               alt="Theme"
-              className="h-16 pl-2 scroll-smooth"
+              className="h-16 pl-2 scroll-smooth 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 sm:mt-3 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-48"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             />
           </Link>
@@ -86,27 +86,27 @@ const Header = () => {
       </div>
       <div>
         <div className="flex">
-          <form action={"/search/" + searchQuery}>
+          <form action={"/search/" + searchQuery} className="flex">
             <input
               type="text"
               placeholder="Search"
-              className="border-[1px] border-black px-4 py-[0.40rem] w-[30rem] rounded-l-full focus:outline-black dark:outline-none dark:bg-[#272727] dark:text-white 2xl:w-[30rem] xl:w-96 lg:w-64 md:w-64 sm:w-28"
+              className="border-[1px] border-black px-4 py-[0.40rem] w-[30rem] rounded-l-full focus:outline-black dark:outline-none dark:bg-[#272727] dark:text-white 2xl:w-[30rem] xl:w-96 lg:w-64 md:w-64 sm:w-36 2xl:rounded-r-none xl:rounded-r-none lg:rounded-r-none md:rounded-r-none sm:rounded-r-full"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setHideSuggestions(true)}
               onBlur={() => setHideSuggestions(true)}
             />
+            <a
+              href={"/search/" + searchQuery}
+              className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.60rem] flex items-center 2xl:block xl:block lg:block md:block sm:hidden"
+            >
+              <img
+                src="/img/search.png"
+                alt="Search Icon"
+                className="h-[1.15rem] xs:h-4"
+              />
+            </a>
           </form>
-          <a
-            href={"/search/" + searchQuery}
-            className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.40rem] flex items-center sm:px-3"
-          >
-            <img
-              src="/img/search.png"
-              alt="Search Icon"
-              className="h-[1.15rem] xs:h-4"
-            />
-          </a>
         </div>
 
         {hideSuggestions && showSuggestions.length > 0 && (

@@ -6,11 +6,11 @@ const VideoCard = ({ info }) => {
   const { channelTitle, title, thumbnails } = snippet;
   let count = Math.floor(statistics?.viewCount / 1000000);
   return (
-    <div className="shadow-lg w-72 rounded-lg cursor-pointer">
+    <div className="shadow-lg w-72 rounded-lg cursor-pointer 2xl:w-72 xl:w-72 lg:w-72 md:w-72 sm:w-screen">
       <img
         src={thumbnails?.medium?.url}
         alt="Video-Img"
-        className="rounded-lg object-fill w-[17rem]"
+        className="rounded-lg object-fill w-[17rem] 2xl:rounded-lg xl:rounded-lg lg:rounded-lg md:rounded-lg sm:rounded-none 2xl:w-[17rem] xl:w-[17rem] lg:w-[17rem] md:w-[17rem] sm:w-screen"
       />
       <div className="px-4 leading-4 py-1">
         <h1 className="font-bold text-sm">{title}</h1>
