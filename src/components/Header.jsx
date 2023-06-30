@@ -96,8 +96,8 @@ const Header = () => {
               onFocus={() => setHideSuggestions(true)}
               onBlur={() => setHideSuggestions(true)}
             />
-            <a
-              href={"/search/" + searchQuery}
+            <Link
+              to={"/search/" + searchQuery}
               className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.60rem] flex items-center 2xl:block xl:block lg:block md:block sm:hidden"
             >
               <img
@@ -105,7 +105,7 @@ const Header = () => {
                 alt="Search Icon"
                 className="h-[1.15rem] xs:h-4"
               />
-            </a>
+            </Link>
           </form>
         </div>
 
