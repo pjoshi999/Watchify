@@ -4,7 +4,7 @@ import Comment from "./Comment";
 const CommentList = ({ comments }) => {
   // DO NOT USE INDEX AS KEY. HERE WE DONT HAVE UNIQUE KEY SO WE ARE USING INDEX
   return comments?.map((comment, index) => (
-    <div key={index} className="">
+    <div key={index}>
       <Comment data={comment} />
       <div className="px-6 ml-5">
         <CommentList comments={comment?.replies} />

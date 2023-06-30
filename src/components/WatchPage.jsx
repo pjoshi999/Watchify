@@ -12,7 +12,6 @@ const WatchPage = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [params] = useSearchParams(); // we cannot use useParams() because in our url, out parameter is not after '/', they are after ?, which are search parameters. So we have to use useSearchParams(). And we can get particular parameter by using .get("param").
   const searchParam = params.get("v");
-  console.log(searchParam);
 
   const dispatch = useDispatch();
   useEffect(() => {
