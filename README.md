@@ -54,9 +54,6 @@ npm start
 5. Submit a pull request, explaining the changes you've made.
 
 ## Demo
-<video width="700" height="370" controls autoplay>
-  <source src="/public/video/watchify.webm" type="video/webm">
-</video>
 
 ##### Please ensure your code follows our coding conventions and includes relevant tests. We appreciate your contributions!
 
