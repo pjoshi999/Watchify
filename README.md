@@ -6,7 +6,7 @@ Welcome to Watchify! Watchify is a cutting-edge video streaming platform that of
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Contributing](#contributing)
-3. [Live Demo](#livedemo)
+3. [Demo](#demo)
 
 ## Features
 Watchify offers a range of features to enhance your online video streaming:
@@ -53,9 +53,9 @@ npm start
 4. Push your changes to your forked repository.
 5. Submit a pull request, explaining the changes you've made.
 
-## Live Demo
+## Demo
 <video width="700" height="370" controls autoplay>
-  <source src="/public/video/watchify.webm" type="video/webM">
+  <source src="/public/video/watchify.webm" type="video/webm">
 </video>
 
 ##### Please ensure your code follows our coding conventions and includes relevant tests. We appreciate your contributions!
