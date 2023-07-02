@@ -56,7 +56,7 @@ npm start
 ## Demo
 
 
-https://github.com/pjoshi999/Watchify/assets/89994650/522abc68-c8d1-4f2b-b91d-4eabd7a10c68
+https://github.com/pjoshi999/Watchify/assets/89994650/f2f67e05-543c-40d3-852c-f7d82ff28166
 
 
 ##### Please ensure your code follows our coding conventions and includes relevant tests. We appreciate your contributions!
