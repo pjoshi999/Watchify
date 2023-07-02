@@ -55,6 +55,10 @@ npm start
 
 ## Demo
 
+
+https://github.com/pjoshi999/Watchify/assets/89994650/522abc68-c8d1-4f2b-b91d-4eabd7a10c68
+
+
 ##### Please ensure your code follows our coding conventions and includes relevant tests. We appreciate your contributions!
 
 #### Thank you for choosing Watchify. We hope you enjoy using our application! If you encounter any issues or have any suggestions, please feel free to reach out to me.
