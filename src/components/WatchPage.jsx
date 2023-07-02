@@ -72,7 +72,7 @@ const WatchPage = () => {
         <iframe
           // width="885"
           // height="498"
-          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:h-[15.1rem]"
+          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:w-screen sm:h-[15.1rem]"
           src={"https://www.youtube.com/embed/" + searchParam + "?autoplay=1"}
           title="YouTube video player"
           frameBorder="0"
