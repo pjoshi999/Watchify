@@ -22,7 +22,7 @@ const SideBar = () => {
 
   return (
     <div
-      className={`pl-4 py-5 w-56 text-sm dark:bg-black dark:text-white 2xl:${() =>
+      className={`pl-4 py-5 w-56 text-sm bg-white dark:bg-black dark:text-white 2xl:${() =>
         openMenuToggle()} 2xl:relative xl:${() =>
         openMenuToggle()} xl:relative lg:${() =>
         openMenuToggle()} lg:relative md:${() =>
