@@ -67,24 +67,24 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="py-5 px-24 w-full dark:bg-black dark:text-white 2xl:px-24 xl:px-16 lg:px-20 md:px-5 sm:px-0">
+    <div className="py-5 px-24 w-full dark:bg-black dark:text-white 2xl:px-24 xl:px-16 lg:px-20 md:px-5 sm:px-0 xs:px-0 overflow-hidden 2xl:py-5 xl:py-5 lg:py-5 md:py-5 sm:py-0 xs:py-0">
       <div className="flex justify-between w-full">
         <iframe
           // width="885"
           // height="498"
-          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:w-screen sm:h-[15.1rem]"
+          className="w-[55.3rem] h-[31.1rem] 2xl:w-[55.3rem] 2xl:h-[31.1rem] xl:w-[55.3rem] xl:h-[31.1rem] lg:w-[55.3rem] lg:h-[31.1rem] md:w-[55.3rem] md:h-[27.6rem] sm:w-screen sm:h-[15.1rem] xs:w-screen xs:h-[10.1rem]"
           src={"https://www.youtube.com/embed/" + searchParam + "?autoplay=1"}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <div className="2xl:w-[26rem] 2xl:block xl:w-96 xl:block lg:w-80 md:hidden sm:hidden">
+        <div className="2xl:w-[26rem] 2xl:block xl:w-96 xl:block lg:w-80 md:hidden sm:hidden xs:hidden">
           <LiveChat />
         </div>
       </div>
-      <div className="flex justify-between w-full mb-5 mt-2 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-4">
-        <div className="w-[55.3rem]">
+      <div className="flex justify-between w-full mb-5 mt-2 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-4 xs:px-3">
+        <div className="w-[55.3rem] 2xl:w-[55.3rem] xl:w-[55.3rem] lg:w-[55.3rem] md:w-[55.3rem] sm:w-[55.3rem] xs:w-[55.3rem]">
           <div>
             <h1 className="text-lg font-bold">{video?.snippet?.title}</h1>
           </div>
@@ -123,7 +123,7 @@ const WatchPage = () => {
                 </button>
               </div>
             </div>
-            <div className="flex 2xl:flex xl:flex lg:flex md:hidden sm:hidden">
+            <div className="flex 2xl:flex xl:flex lg:flex md:hidden sm:hidden xs:hidden">
               <div className="mx-1">
                 <button className="px-3 py-1 rounded-l-full bg-[#f2f2f2] hover:bg-[#e2e0e0] border-r border-r-[#c2bdbd] dark:bg-[#272727] dark:hover:bg-[#3d3d3d]">
                   <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>

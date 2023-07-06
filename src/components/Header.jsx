@@ -4,6 +4,7 @@ import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_URL } from "../utils/config";
 import { cacheResults } from "../utils/searchSlice";
 import { Link } from "react-router-dom";
+import useDarkMode from "../utils/useDarkMode";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +12,9 @@ const Header = () => {
   const [hideSuggestions, setHideSuggestions] = useState(true);
   const [hideProfileSection, setHideProfileSection] = useState(false);
   const [isDark, setIsDark] = useState(false);
+
+  const [colorTheme, setTheme] = useDarkMode();
+  // console.log(localStorage.theme);
 
   const dispatch = useDispatch();
 
@@ -62,14 +66,14 @@ const Header = () => {
           aria-hidden="true"
           onClick={() => toggleMenuHandler()}
         ></i>
-        {localStorage.theme === "dark" ||
+        {colorTheme === "light" ||
         (!("theme" in localStorage) &&
           window.matchMedia("(prefers-color-scheme: dark)").matches) ? (
           <Link to="/">
             <img
               src="/img/watchify-dark.png"
               alt="Theme"
-              className="h-16 pl-2 scroll-smooth 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 sm:mt-3 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-48"
+              className="h-16 pl-2 scroll-smooth 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 sm:mt-3 xs:mt-3 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-48 xs:w-48"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             />
           </Link>
@@ -90,7 +94,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search"
-              className="border-[1px] border-black px-4 py-[0.40rem] w-[30rem] rounded-l-full focus:outline-black dark:outline-none dark:bg-[#272727] dark:text-white 2xl:w-[30rem] xl:w-96 lg:w-64 md:w-64 sm:w-36 2xl:rounded-r-none xl:rounded-r-none lg:rounded-r-none md:rounded-r-none sm:rounded-r-full"
+              className="border-[1px] border-black px-4 py-[0.40rem] w-[30rem] rounded-l-full focus:outline-black dark:outline-none dark:bg-[#272727] dark:text-white 2xl:w-[30rem] xl:w-96 lg:w-64 md:w-64 sm:w-36 xs:w-20 2xl:rounded-r-none xl:rounded-r-none lg:rounded-r-none md:rounded-r-none sm:rounded-r-full xs:rounded-r-full"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setHideSuggestions(true)}
@@ -98,7 +102,7 @@ const Header = () => {
             />
             <Link
               to={"/search/" + searchQuery}
-              className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.60rem] flex items-center 2xl:block xl:block lg:block md:block sm:hidden"
+              className="rounded-r-full bg-black text-white dark:bg-[#272727] dark:text-white text-center px-4 py-[0.60rem] flex items-center 2xl:block xl:block lg:block md:block sm:hidden xs:hidden"
             >
               <img
                 src="/img/search.png"
@@ -127,16 +131,16 @@ const Header = () => {
       <div>
         <div className="flex items-center">
           <div
-            className="px-5 cursor-pointer"
+            className="px-5 cursor-pointer 2xl:block xl:block lg:block md:block sm:hidden xs:hidden"
             onClick={() => setIsDark(!isDark)}
           >
-            {localStorage.theme === "dark" ||
+            {colorTheme === "light" ||
             (!("theme" in localStorage) &&
               window.matchMedia("(prefers-color-scheme: dark)").matches) ? (
               <img
                 src="/img/light-dark2.png"
                 alt="Theme"
-                className="h-5 ml-1 mr-2 bg-white rounded-full 2xl:block xl:block lg:block md:block sm:hidden"
+                className="h-5 ml-1 mr-2 bg-white rounded-full"
               />
             ) : (
               <img
@@ -153,8 +157,9 @@ const Header = () => {
                 <li
                   className="flex px-2 hover:bg-[#e6e6e6] py-1 cursor-pointer dark:bg-[#272727]"
                   onClick={() => {
-                    localStorage.theme = "light";
-                    window.location.reload();
+                    // localStorage.theme = "light";
+                    // window.location.reload();
+                    setTheme("light");
                   }}
                 >
                   <img src="/img/light.png" alt="" className="h-6 px-1" />
@@ -163,11 +168,12 @@ const Header = () => {
                 <li
                   className="flex px-2 hover:bg-[#e6e6e6] py-1 cursor-pointer dark:bg-[#272727]"
                   onClick={() => {
-                    localStorage.theme = "dark";
-                    window.location.reload();
+                    // localStorage.theme = "dark";
+                    // window.location.reload();
+                    setTheme("dark");
                   }}
                 >
-                  {localStorage.theme === "dark" ||
+                  {colorTheme === "light" ||
                   (!("theme" in localStorage) &&
                     window.matchMedia("(prefers-color-scheme: dark)")
                       .matches) ? (
@@ -180,11 +186,12 @@ const Header = () => {
                 <li
                   className="flex px-2 hover:bg-[#e6e6e6] py-1 cursor-pointer dark:bg-[#272727]"
                   onClick={() => {
-                    localStorage.removeItem("theme");
+                    // localStorage.removeItem("theme");
+                    setTheme(null);
                     window.location.reload();
                   }}
                 >
-                  {localStorage.theme === "dark" ||
+                  {colorTheme === "light" ||
                   (!("theme" in localStorage) &&
                     window.matchMedia("(prefers-color-scheme: dark)")
                       .matches) ? (

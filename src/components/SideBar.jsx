@@ -27,7 +27,8 @@ const SideBar = () => {
         openMenuToggle()} xl:relative lg:${() =>
         openMenuToggle()} lg:relative md:${() =>
         openMenuToggle()} md:relative sm:${() =>
-        dispatch(() => closeMenuToggle())} sm:absolute`}
+        dispatch(() => closeMenuToggle())} sm:absolute xs:${() =>
+        dispatch(() => closeMenuToggle())} xs:absolute`}
     >
       <ul className="font-bold mb-1">
         <li className="bg-[#e3e3e3] dark:bg-[#272727] dark:text-white cursor-pointer rounded-md py-2">

@@ -36,20 +36,22 @@ const RecommendedVideo = ({ data }) => {
   const { snippet } = data;
   const { channelTitle, title, publishedAt, thumbnails } = snippet;
   return (
-    <div className="flex cursor-pointer">
-      <img
-        src={thumbnails?.medium?.url}
-        alt=""
-        className="w-40 rounded-lg h-20"
-      />
-      <div className="px-2">
-        <h1 className="text-sm font-bold">{title.slice(0, 55)}</h1>
-        <h1 className="text-xs text-[#606060] pt-1">{channelTitle}</h1>
-        <h1 className="text-xs text-[#606060]">
-          {calculateDuration(publishedAt)} ago
-        </h1>
+    <a href={"/watch?v=" + data?.id?.videoId}>
+      <div className="flex cursor-pointer">
+        <img
+          src={thumbnails?.medium?.url}
+          alt=""
+          className="w-40 rounded-lg h-20"
+        />
+        <div className="px-2">
+          <h1 className="text-sm font-bold">{title.slice(0, 55)}</h1>
+          <h1 className="text-xs text-[#606060] pt-1">{channelTitle}</h1>
+          <h1 className="text-xs text-[#606060]">
+            {calculateDuration(publishedAt)} ago
+          </h1>
+        </div>
       </div>
-    </div>
+    </a>
   );
 };
 

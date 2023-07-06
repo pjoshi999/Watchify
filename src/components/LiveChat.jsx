@@ -29,7 +29,7 @@ const LiveChat = () => {
   return (
     <div className="border border-black w-[26rem] px-5 py-2 font-semibold rounded-xl h-[498px] dark:border-white">
       <h1 className="pb-2">Top Chat ⮛</h1>
-      <div className="flex flex-col-reverse overflow-y-scroll py-2 w-[24rem] h-[418px] 2xl:w-[26rem] xl:w-96 lg:w-80">
+      <div className="flex flex-col-reverse overflow-y-scroll py-2 w-[24rem] h-[418px] 2xl:w-[26rem] xl:w-96 lg:w-80 sm:w-80 xs:w-80">
         {chatMessages?.map((m, index) => (
           // DO NOT USE INDEX AS KEY. HERE WE DONT HAVE UNIQUE KEY SO WE ARE USING INDEX
           <LiveMessage key={index} name={m?.name} text={m?.text} />
