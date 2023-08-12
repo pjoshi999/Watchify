@@ -10,8 +10,6 @@ const Body = () => {
       <div className="flex dark:bg-black dark:text-white">
         <SideBar />
         <Outlet />
-
-        
       </div>
     </>
   );
