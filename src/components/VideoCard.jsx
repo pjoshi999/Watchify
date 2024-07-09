@@ -12,7 +12,7 @@ const VideoCard = ({ info }) => {
         alt="Video-Img"
         className="rounded-lg object-fill w-[17rem] 2xl:rounded-lg xl:rounded-lg lg:rounded-lg md:rounded-lg sm:rounded-none xs:rounded-none 2xl:w-[17rem] xl:w-[17rem] lg:w-[17rem] md:w-[17rem] sm:w-screen xs:w-screen"
       />
-      <div className="px-4 leading-4 py-1">
+      <div className="px-4 leading-4 py-1"> 
         <h1 className="font-bold text-sm">{title}</h1>
         <h1 className="font-medium pt-1 text-sm">{channelTitle}</h1>
         <h2 className="text-sm pb-2">
