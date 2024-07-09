@@ -21,7 +21,7 @@ const VideoContainer = () => {
     );
     const json = await data.json();
     // console.log(json);
-    setVideos((prev) => [...prev, ...json.items]);
+    setVideos((prev) => [...prev, ...json?.items]);
   };
 
   useEffect(() => {

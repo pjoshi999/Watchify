@@ -18,7 +18,7 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const searchCache = useSelector((store) => store.search);
+  const searchCache = useSelector((store) => store?.search);
 
   // Suggestion
   useEffect(() => {

@@ -17,18 +17,18 @@ const WatchPage = () => {
   useEffect(() => {
     dispatch(closeMenu());
     getVideoDetail();
-  }, []);
+  }, [params]);
 
   const getVideoDetail = async () => {
     const data = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
+      "https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
         searchParam +
         "&key=" +
         GOOGLE_API_KEY
     );
     const json = await data.json();
     // console.log(json);
-    setVideo(json.items[0]);
+    setVideo(json?.items[0]);
   };
 
   const calculateDuration = (date) => {
