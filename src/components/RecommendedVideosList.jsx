@@ -11,25 +11,33 @@ const RecommendedVideosList = () => {
 
   useEffect(() => {
     getRecommendedVideos();
-  }, [params]);
+  }, [searchParams]);
 
   const getRecommendedVideos = async () => {
-    const data = await fetch(
-      "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&relatedToVideoId=" +
-        searchParams +
-        "&type=video&key=" +
-        GOOGLE_API_KEY
-    );
-    const json = await data.json();
-    console.log(json);
+    const url = `https://youtube138.p.rapidapi.com/video/related-contents/?id=${searchParams}&hl=en&gl=US`;
+    const options = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "9227d98b7dmshb7e4151144c553bp11a4e7jsnf24d7b0109c4",
+        "x-rapidapi-host": "youtube138.p.rapidapi.com",
+      },
+    };
 
-    setRecommended(json?.items);
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      setRecommended(result?.contents);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  console.log(recommended);
 
   return (
     <div className="2xl:w-[26rem] 2xl:block xl:w-96 xl:block lg:w-80 md:hidden sm:hidden xs:hidden">
       {recommended?.map((video) => (
-        <div className="py-2" key={video?.id?.videoId}>
+        <div className="py-2" key={video?.video?.videoId}>
           <RecommendedVideo data={video} />
         </div>
       ))}

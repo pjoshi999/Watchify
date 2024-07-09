@@ -9,6 +9,7 @@ import { GOOGLE_API_KEY } from "../utils/config";
 
 const WatchPage = () => {
   const [video, setVideo] = useState([]);
+  const [video2, setVideo2] = useState([]);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [params] = useSearchParams(); // we cannot use useParams() because in our url, out parameter is not after '/', they are after ?, which are search parameters. So we have to use useSearchParams(). And we can get particular parameter by using .get("param").
   const searchParam = params.get("v");
@@ -20,15 +21,38 @@ const WatchPage = () => {
   }, [params]);
 
   const getVideoDetail = async () => {
-    const data = await fetch(
-      "https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
-        searchParam +
-        "&key=" +
-        GOOGLE_API_KEY
-    );
-    const json = await data.json();
-    // console.log(json);
-    setVideo(json?.items[0]);
+    // // console.log(json);
+    const url = `https://youtube138.p.rapidapi.com/video/details/?id=${searchParam}&hl=en&gl=US`;
+    const options = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "9227d98b7dmshb7e4151144c553bp11a4e7jsnf24d7b0109c4",
+        "x-rapidapi-host": "youtube138.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      console.log(result);
+      setVideo(result);
+      if (
+        result?.message?.includes(
+          "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+        )
+      ) {
+        const data = await fetch(
+          "https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
+            searchParam +
+            "&key=" +
+            GOOGLE_API_KEY
+        );
+        const json = await data.json();
+        setVideo2(json?.items[0]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const calculateDuration = (date) => {
@@ -60,7 +84,15 @@ const WatchPage = () => {
     }
   };
 
-  let count = Math.floor(video?.statistics?.viewCount / 1000000);
+  console.log(video);
+
+  let count = Math.floor(
+    video?.message?.includes(
+      "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+    )
+      ? video2?.statistics?.viewCount / 1000000
+      : video?.stats?.views / 1000000
+  );
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -86,22 +118,42 @@ const WatchPage = () => {
       <div className="flex justify-between w-full mb-5 mt-2 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-4 xs:px-3">
         <div className="w-[55.3rem] 2xl:w-[55.3rem] xl:w-[55.3rem] lg:w-[55.3rem] md:w-[55.3rem] sm:w-[55.3rem] xs:w-[55.3rem]">
           <div>
-            <h1 className="text-lg font-bold">{video?.snippet?.title}</h1>
+            <h1 className="text-lg font-bold">
+              {video?.message?.includes(
+                "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+              )
+                ? video2?.snippet?.title
+                : video?.title}
+            </h1>
           </div>
           <div className="flex my-3 justify-between items-center">
             <div className="flex">
               <img
-                src="https://yt3.ggpht.com/ytc/AGIKgqN1F5HXRCFl48NA5bwfOJsdLakGKcwyJrcZ31fkGQ=s48-c-k-c0x00ffffff-no-rj"
+                src={
+                  video?.message?.includes(
+                    "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                  )
+                    ? "https://yt3.ggpht.com/ytc/AGIKgqN1F5HXRCFl48NA5bwfOJsdLakGKcwyJrcZ31fkGQ=s48-c-k-c0x00ffffff-no-rj"
+                    : video?.author?.avatar[0]?.url
+                }
                 alt=""
                 className="w-9 h-9 cursor-pointer rounded-full"
               />
               <div className="mx-2 leading-3 flex">
                 <div>
                   <h1 className="text-sm font-bold">
-                    {video?.snippet?.channelTitle}
+                    {video?.message?.includes(
+                      "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                    )
+                      ? video2?.snippet?.channelTitle
+                      : video?.author?.title}
                   </h1>
                   <span className="text-xs text-[#606060] dark:text-[#aaaaaa]">
-                    150M subscribers
+                    {video?.message?.includes(
+                      "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                    )
+                      ? "150M subscribers"
+                      : video?.author?.stats?.subscribersText}
                   </span>
                 </div>
                 <button
@@ -155,15 +207,47 @@ const WatchPage = () => {
             <h1 className="font-medium">
               {count === 0
                 ? (count =
-                    Math.floor(video?.statistics?.viewCount / 1000) +
-                    "K views ")
-                : count + "M views "}
-              {calculateDuration(video?.snippet?.publishedAt)} ago
+                    Math.floor(
+                      video?.message?.includes(
+                        "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                      )
+                        ? video2?.statistics?.viewCount / 1000
+                        : video?.stats?.views / 1000
+                    ) + "K views ")
+                : Math.floor(
+                    video?.message?.includes(
+                      "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                    )
+                      ? video2?.statistics?.viewCount / 1000000000
+                      : video?.stats?.views / 1000000000
+                  )
+                ? (count =
+                    (video?.message?.includes(
+                      "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                    )
+                      ? video2?.statistics?.viewCount / 1000000000
+                      : video?.stats?.views / 1000000000
+                    ).toFixed(1) + "B views ")
+                : count + "M views "}{" "}
+              {calculateDuration(
+                video?.message?.includes(
+                  "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+                )
+                  ? video2?.snippet?.publishedAt
+                  : video?.publishedDate
+              )}{" "}
+              ago
             </h1>
             <p>
-              {video?.snippet?.description.length > 500
-                ? video?.snippet?.description.substr(0, 500) + "..."
-                : video?.snippet?.description}
+              {video?.message?.includes(
+                "You have exceeded the MONTHLY quota for Requests on your current plan, BASIC."
+              )
+                ? video2?.snippet?.description?.length > 500
+                  ? video2?.snippet?.description.substr(0, 500) + "..."
+                  : video2?.snippet?.description
+                : video?.description?.length > 500
+                ? video?.description.substr(0, 500) + "..."
+                : video?.description}
               <br />
             </p>
           </div>

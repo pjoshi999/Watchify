@@ -1,57 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecommendedVideo = ({ data }) => {
-  const calculateDuration = (date) => {
-    const now = new Date();
-    const inputDate = new Date(date);
-    const diff = Math.abs(now - inputDate);
-    const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // Account for leap years
-    const years = Math.floor(diff / millisecondsPerYear);
-    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44)); // Average number of days per month
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor(diff / (1000 * 60));
-    if (years >= 1) {
-      return `${years} year${years > 1 ? "s" : ""}`;
-    } else {
-      if (months >= 1) {
-        return `${months} month${months > 1 ? "s" : ""}`;
-      } else {
-        if (days >= 1) {
-          return `${days} day${days > 1 ? "s" : ""}`;
-        } else {
-          if (hours >= 1) {
-            return `${hours} hour${hours > 1 ? "s" : ""}`;
-          } else {
-            return `${minutes} minute${minutes > 1 ? "s" : ""}`;
-          }
-        }
-      }
-    }
-  };
-
-  if (data === undefined) {
-    return;
-  }
-  const { snippet } = data;
-  const { channelTitle, title, publishedAt, thumbnails } = snippet;
   return (
-    <a href={"/watch?v=" + data?.id?.videoId}>
+    <Link to={"/watch?v=" + data?.video?.videoId}>
       <div className="flex cursor-pointer">
         <img
-          src={thumbnails?.medium?.url}
+          src={data?.video?.thumbnails[1]?.url}
           alt=""
-          className="w-40 rounded-lg h-20"
+          className="w-40 rounded-lg"
         />
         <div className="px-2">
-          <h1 className="text-sm font-bold">{title.slice(0, 55)}</h1>
-          <h1 className="text-xs text-[#606060] pt-1">{channelTitle}</h1>
+          <h1 className="text-sm font-bold">
+            {data?.video?.title.slice(0, 55)}
+          </h1>
+          <h1 className="text-xs text-[#606060] pt-1">
+            {data?.video?.author?.title}
+          </h1>
           <h1 className="text-xs text-[#606060]">
-            {calculateDuration(publishedAt)} ago
+            {data?.video?.publishedTimeText}
           </h1>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
